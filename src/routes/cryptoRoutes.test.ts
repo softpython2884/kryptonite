@@ -54,7 +54,7 @@ describe('Crypto API Routes', () => {
                 .post('/api/caesar/decrypt')
                 .send({ text: 'bcd' });
             expect(res.status).toBe(400);
-            expect(res.body.error).toContain('required');
+            expect(res.body.error).toMatch(/Il faut|clé/);
         });
     });
 
