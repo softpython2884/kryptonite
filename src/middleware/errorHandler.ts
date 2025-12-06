@@ -12,7 +12,13 @@ export function errorHandler(err: any, req: Request, res: Response, next: NextFu
         });
     }
 
-    if (err.message && (err.message.includes('required') || err.message.includes('Invalid'))) {
+    if (err.message && (
+        err.message.includes('required') ||
+        err.message.includes('Invalid') ||
+        err.message.includes('invalide') ||
+        err.message.includes('Il faut') ||
+        err.message.includes('Pas de bras')
+    )) {
         return res.status(400).json({
             success: false,
             error: err.message
